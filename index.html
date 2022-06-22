@@ -11,23 +11,42 @@
 
 <body>
     <div class="container">
-        <h2>Elige tu pizza</h2>
-        <div class="container__card">
+        <div class="container__pizza">
+            <h2>Nuestro Catálogo</h2>
+            <div class="pizzas">
 
+            </div>
         </div>
-        <div class="container__input">
-            <input type="number" name="" id="inputID">
-            <input type="button" value="Buscar" class="btn__buscar" id="btnBuscar">
+        <div class="search__container">
+            <h2>Elige tu pizza</h2>
+            <div class="container__card">
+
+            </div>
+            <div class="container__input">
+                <input type="text" name="" id="nombrePizza">
+                <input type="button" value="Buscar" class="btn__buscar" id="btnBuscar">
+                <input type="button" value="Mostrar todas las pizzas" class="btn__todos" id="bntTodos">
+            </div>
         </div>
     </div>
-    <template class="template__card" id="templateCard">
-    <div class="card">
+
+    <template class="temaplate__card" id="templateCard">
+        <div class="card">
+            <h3></h3>
+            <img src="" alt="">
+            <h4></h4>
+            <p></p>
+        </div>
+    </template>
+
+    <template class="template__card__search" id="templateCardSearch">
+    <div class="card__search">
         <h3></h3>
         <img src="" alt="">
         <h4></h4>
         <p></p>
     </div>
-</template>
+    </template>
 
 
     <script src="index.js"></script>

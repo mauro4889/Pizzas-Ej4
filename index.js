@@ -1,7 +1,10 @@
-const idPizza = document.getElementById('inputID');
+const nombrePizza = document.getElementById('nombrePizza');
 const btnBuscar = document.getElementById('btnBuscar');
+const btnTodo = document.getElementById('bntTodos');
 const containerCard = document.querySelector('.container__card');
+const pizzas = document.querySelector('.pizzas');
 const templateCard = document.querySelector('#templateCard').content;
+const templateCardSearch = document.querySelector('#templateCardSearch').content;
 const fragment = document.createDocumentFragment();
 
 
@@ -51,25 +54,53 @@ const Pizza = [{
 
 localStorage.setItem('ListaPizza', JSON.stringify(Pizza));
 
-const limpiar = () => {
+const limpiarBusqueda = () => {
     while (containerCard.firstChild) {
         containerCard.removeChild(containerCard.firstChild);
+    }
+}
+const limpiar = () => {
+    while (pizzas.firstChild) {
+        pizzas.removeChild(pizzas.firstChild);
     }
 }
 
 btnBuscar.addEventListener('click', () => {
     limpiar();
-    let pizza = idPizza.value;
-    const resultadoBusqueda = Pizza.find(el => el.ID == pizza);
+    limpiarBusqueda();
+    let pizza = nombrePizza.value;
+    const resultadoBusqueda = Pizza.find(el => el.nombre.toLowerCase() == pizza);
     if (resultadoBusqueda) {
-        templateCard.querySelector('h3').textContent = `${resultadoBusqueda.nombre}`;
-        templateCard.querySelector('img').setAttribute('src', `${resultadoBusqueda.img}`);
-        templateCard.querySelector('h4').textContent = `$${resultadoBusqueda.precio}`;
-        templateCard.querySelector('p').textContent = `Los ingredientes son: ${resultadoBusqueda.ingradientes}`;
-        const clone = document.importNode(templateCard, true);
+        templateCardSearch.querySelector('h3').textContent = `${resultadoBusqueda.nombre}`;
+        templateCardSearch.querySelector('img').setAttribute('src', `${resultadoBusqueda.img}`);
+        templateCardSearch.querySelector('h4').textContent = `$${resultadoBusqueda.precio}`;
+        templateCardSearch.querySelector('p').textContent = `Los ingredientes son: ${resultadoBusqueda.ingradientes}`;
+        const clone = document.importNode(templateCardSearch, true);
         fragment.appendChild(clone);
         containerCard.appendChild(fragment);
-        idPizza.value = '';
+        nombrePizza.value = '';
     } else alert('No se encontro la pizza');
 
+})
+
+const mostrar = (array) => {
+    array.forEach((pizza) => {
+        templateCard.querySelector('h3').textContent = `${pizza.nombre}`;
+        templateCard.querySelector('img').setAttribute('src', `${pizza.img}`);
+        templateCard.querySelector('h4').textContent = `$${pizza.precio}`;
+        templateCard.querySelector('p').textContent = `Los ingredientes son: ${pizza.ingradientes}`;
+        const clone = document.importNode(templateCard, true);
+        fragment.appendChild(clone);
+        pizzas.appendChild(fragment);
+    })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    mostrar(Pizza);
+})
+
+btnTodo.addEventListener('click', () => {
+    limpiar();
+    limpiarBusqueda();
+    mostrar(Pizza)
 })

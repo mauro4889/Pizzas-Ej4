@@ -12,8 +12,7 @@ body {
 }
 
 .container {
-  width: 50%;
-  height: 95%;
+  width: 90%;
   margin: auto;
   border: solid 1px black;
   margin-top: 1%;
@@ -32,14 +31,29 @@ body {
   }
 }
 
-.container h2 {
+.container__pizza {
+  width: 100%;
+}
+
+.container__pizza h2 {
   font-size: 45px;
   text-align: center;
   color: #fffffe;
   font-weight: bolder;
 }
 
-.container .container__input {
+.search__container {
+  margin-top: 5%;
+}
+
+.search__container h2 {
+  font-size: 45px;
+  text-align: center;
+  color: #fffffe;
+  font-weight: bolder;
+}
+
+.search__container .container__input {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,8 +64,8 @@ body {
           flex-direction: column;
 }
 
-.container .container__input input {
-  width: 50%;
+.search__container .container__input input {
+  width: 30%;
   height: 2em;
   margin: auto;
   margin-top: 5%;
@@ -59,50 +73,103 @@ body {
   font-size: 20px;
 }
 
-.btn__buscar {
+.btn__buscar, .btn__todos {
   background-color: #ffc0ad;
   color: #271c19;
   border: none;
   cursor: pointer;
+  margin-bottom: 5%;
+  font-weight: bolder;
 }
 
-.card {
+.btn__buscar:hover, .btn__todos:hover {
+  background-color: #271c19;
+  color: #ffc0ad;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.card__search, .card {
   width: 100%;
   color: #fff3ec;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.card h3 {
+.card__search h3, .card h3 {
   width: 100%;
   text-align: center;
   font-size: 25px;
   margin-top: 2%;
 }
 
-.card img {
-  width: 50%;
+.card__search img, .card img {
+  width: 40%;
   height: 15em;
   background-size: cover;
   margin-top: 5%;
-  margin-left: 25%;
 }
 
 @media (min-width: 375px) and (max-width: 766px) {
-  .card img {
+  .card__search img, .card img {
     width: 90%;
     margin-left: 5%;
   }
 }
 
-.card h4 {
+.card__search h4, .card h4 {
   text-align: center;
   font-size: 20px;
   margin-top: 5%;
 }
 
-.card p {
+.card__search p, .card p {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
+  margin-top: 2%;
+}
+
+.pizzas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  margin-left: 3.5%;
+  margin-top: 2%;
+}
+
+.card img {
+  width: 50%;
+  margin: auto;
   margin-top: 2%;
 }
 /*# sourceMappingURL=index.css.map */
